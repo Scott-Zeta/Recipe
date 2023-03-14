@@ -3,9 +3,14 @@ import { useGlobalContext } from '../context'
 
 const Search = () => {
   const [text, setText] = useState('')
+  const {setSearchTerm} = useGlobalContext()
+  
   const textChange = (e) => setText(e.target.value)
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(text){
+      setSearchTerm(text)
+    }
   }
 
   return (

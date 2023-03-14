@@ -8,17 +8,18 @@ const AppProvider = ({ children }) => {
   const random = 'https://www.themealdb.com/api/json/v1/1/random.php'
   const [meals, setMeals] = useState([])
   const [loading, setLoading] = useState(false)
-
+  const [searchTerm, setSearchTerm] = useState('')
+  
   const fetchData = (url) => {
     setLoading(true)
     axios.get(url).then(response => setMeals(response.data.meals)).catch(e => console.log('Error', e.response))
     setLoading(false)
   }
 
-  useEffect(() => fetchData(all), [])
+  useEffect(() => fetchData(`${all}${searchTerm}`), [searchTerm])
   //useEffect is like provide an isolated logic environment for the function inside
 
-  return <AppContext.Provider value={{ meals, loading }}>
+  return <AppContext.Provider value={{ meals, loading, setSearchTerm }}>
     {children}
   </AppContext.Provider>
 }
