@@ -1,8 +1,7 @@
-import { useContext } from 'react'
-import { AppContext } from '../context'
+import { useGlobalContext } from '../context'
 
 const Meals = () => {
-  const landing = useContext(AppContext)
+  const landing = useGlobalContext()
   return (
     <>
       <h1>Meals</h1>
