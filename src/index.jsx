@@ -8,6 +8,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
     <AppProvider>
 		  <App />
+{/*App this is the childern */}
     </AppProvider>
 	</React.StrictMode>
 )
