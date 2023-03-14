@@ -3,9 +3,14 @@ import React, { useContext, useEffect } from 'react'
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-  useEffect(() => {
-    fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=').then(response => response.json()).then(data => console.log(data)).catch(e => console.log('Error', e))
-  }, [])
+  const all = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
+  const random = 'https://www.themealdb.com/api/json/v1/1/random.php'
+
+  const fetchData = (url) => {
+    fetch(url).then(response => response.json()).then(data => console.log(data)).catch(e => console.log('Error', e))
+  }
+
+  useEffect(() => fetchData(all), [])
   //useEffect is like provide an isolated logic environment for the function inside
 
   return <AppContext.Provider value='testString'>
