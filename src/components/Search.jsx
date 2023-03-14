@@ -1,6 +1,15 @@
+import {useState} from 'react'
+import {useGlobalContext} from '../context'
+
 const Search = () => {
   return (
-    <h1>Search</h1>
+    <header className='search-container'>
+      <form>
+        <input type='text' placeholder='What is your favorite?' className='form-input'/>
+        <button type='submit' className='btn'>Search</button>
+        <button type='button' className='btn btn-hipster'>Suprise me!</button>
+      </form>
+    </header>
   )
 }
 
