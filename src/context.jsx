@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react'
+import axios from 'axios'
 
 const AppContext = React.createContext()
 
@@ -7,7 +8,7 @@ const AppProvider = ({ children }) => {
   const random = 'https://www.themealdb.com/api/json/v1/1/random.php'
 
   const fetchData = (url) => {
-    fetch(url).then(response => response.json()).then(data => console.log(data)).catch(e => console.log('Error', e))
+    axios.get(url).then(response => console.log(response)).catch(e => console.log('Error', e))
   }
 
   useEffect(() => fetchData(all), [])
