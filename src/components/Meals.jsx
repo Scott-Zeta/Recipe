@@ -6,8 +6,8 @@ const Meals = () => {
   console.log(meals)
   return (
     <section className='section-center'>
-      {loading ? <h4>Loading...</h4> :
-        (meals.map(m => {
+      {loading ? (<h4>Loading...</h4>) :
+        (meals ? (meals.map(m => {
           //deconstruct
           const { idMeal: id, strMeal: title, strMealThumb: img } = m
           return (<article className='single-meal' key={id}>
@@ -17,7 +17,7 @@ const Meals = () => {
               <button className='like-btn'><BsHandThumbsUp /></button>
             </footer>
           </article>)
-        }))
+        })) : (<h1>Nothing Match!</h1>))
       }
     </section>
   )
