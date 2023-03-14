@@ -2,10 +2,13 @@ import { useGlobalContext } from '../context'
 
 const Meals = () => {
   const landing = useGlobalContext()
+  console.log(landing)
   return (
     <>
       <h1>Meals</h1>
-      <h5>{landing}</h5>
+      <div>{
+        landing.map(m=><p key={m.idMeal}>{m.strMeal}</p>)
+      }</div>
     </>
   )
 }
