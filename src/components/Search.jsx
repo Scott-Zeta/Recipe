@@ -8,9 +8,8 @@ const Search = () => {
   const textChange = (e) => setText(e.target.value)
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(text){
-      setSearchTerm(text)
-    }
+    setSearchTerm(text)
+    setText('')
   }
 
   return (
