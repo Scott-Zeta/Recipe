@@ -5,10 +5,14 @@ const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const all = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
-  const random = 'https://www.themealdb.com/api/json/v1/1/random.php'
+  const randomUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
   const [meals, setMeals] = useState([])
   const [loading, setLoading] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
+  
+  const fetchRandom = () => {
+    fetchData(randomUrl)
+  }
   
   const fetchData = (url) => {
     setLoading(true)
@@ -19,7 +23,7 @@ const AppProvider = ({ children }) => {
   useEffect(() => fetchData(`${all}${searchTerm}`), [searchTerm])
   //useEffect is like provide an isolated logic environment for the function inside
 
-  return <AppContext.Provider value={{ meals, loading, setSearchTerm }}>
+  return <AppContext.Provider value={{ meals, loading, setSearchTerm, fetchRandom }}>
     {children}
   </AppContext.Provider>
 }
