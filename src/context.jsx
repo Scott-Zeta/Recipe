@@ -37,18 +37,19 @@ const AppProvider = ({ children }) => {
     setShowModal(false)
   }
 
-  const addToFavorites = (idMeal) =>{
-    const meal = meals.find((m)=>m.idMeal === idMeal)
-    const alreadyFavorites = favorites.find((m)=>m.idMeal === idMeal)
-    if(alreadFavorites){
+  const addToFavorites = ({ idMeal }) => {
+    console.log(idMeal)
+    const meal = meals.find((m) => m.idMeal === idMeal)
+    const alreadyFavorites = favorites.find((m) => m.idMeal === idMeal)
+    if (alreadyFavorites) {
       return
     }
-    const updatedFavorites = [...favorites,meal]
+    const updatedFavorites = [...favorites, meal]
     setFavorites(updatedFavorites)
   }
 
-  const removeFavorites = (idMeal) =>{
-    const updatedFavorites = favorites.filter((m)=>m.idMeal !== idMeal)
+  const removeFavorites = (idMeal) => {
+    const updatedFavorites = favorites.filter((m) => m.idMeal !== idMeal)
     setFavorites(updatedFavorites)
   }
 
