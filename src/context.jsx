@@ -26,9 +26,14 @@ const AppProvider = ({ children }) => {
   useEffect(() => fetchData(`${all}${searchTerm}`), [searchTerm])
   //useEffect is like provide an isolated logic environment for the function inside
 
-  const select = ({ idMeal }) => {
+  const select = ({ idMeal, favoritesMeal }) => {
     //find the selected one from the set by get the id from selection
-    let meal = meals.find((m) => m.idMeal === idMeal)
+    let meal;
+    if (favoritesMeal) {
+      meal = favorites.find((m) => m.idMeal === idMeal)
+    } else {
+      meal = meals.find((m) => m.idMeal === idMeal)
+    }
     setSelectedMeal(meal)
     setShowModal(true)
   }

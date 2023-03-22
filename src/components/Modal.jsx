@@ -2,7 +2,7 @@ import { useGlobalContext } from "../context"
 
 const Modal = () => {
   const { selectedMeal, closeModal } = useGlobalContext()
-  const { idMeal, strMealThumb: image, strMeal: title, strInstructions: text, strSource: source } = selectedMeal
+  const { idMeal: id, strMealThumb: image, strMeal: title, strInstructions: text, strSource: source } = selectedMeal
   return (
     <aside className="modal-overlay" onClick={() => closeModal()}>
       <div className="modal-container">
