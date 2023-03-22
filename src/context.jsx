@@ -27,7 +27,6 @@ const AppProvider = ({ children }) => {
 
   const select = ({ idMeal }) => {
     //find the selected one from the set by get the id from selection
-    console.log(idMeal)
     let meal = meals.find((m) => m.idMeal === idMeal)
     setSelectedMeal(meal)
     setShowModal(true)
