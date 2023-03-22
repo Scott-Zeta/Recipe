@@ -1,11 +1,11 @@
 import { useGlobalContext } from "../context"
 
 const Modal = () => {
-  const {} = useGlobalContext()
+  const { closeModal } = useGlobalContext()
   return (
-    <aside className="modal-overlay">
+    <aside className="modal-overlay" onClick={()=>closeModal()}>
       <div className="modal-container">
-      <h1>Modal</h1>
+        <h1>Modal</h1>
       </div>
     </aside>
   )
