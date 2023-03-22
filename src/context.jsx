@@ -10,6 +10,7 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [showModal, setShowModal] = useState(false)
+  const [selectedMeal, setSelectedMeal] = useState(null)
 
   const fetchRandom = () => {
     fetchData(randomUrl)
@@ -24,7 +25,15 @@ const AppProvider = ({ children }) => {
   useEffect(() => fetchData(`${all}${searchTerm}`), [searchTerm])
   //useEffect is like provide an isolated logic environment for the function inside
 
-  return <AppContext.Provider value={{ meals, loading, setSearchTerm, fetchRandom, showModal }}>
+  const select = ({idMeal}) =>{
+    //find the selected one from the set
+    console.log(idMeal)
+    let meal = meals.find((m)=>m.idMeal === idMeal)
+    setSelectedMeal(meal)
+    setShowModal(true)
+  }
+
+  return <AppContext.Provider value={{ meals, loading, setSearchTerm, fetchRandom, showModal,selectedMeal,select }}>
     {children}
   </AppContext.Provider>
 }
